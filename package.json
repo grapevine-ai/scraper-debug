@@ -1,0 +1,33 @@
+{
+  "name": "scraper-debug",
+  "version": "0.0.3",
+  "private": true,
+  "description": "Scraper debug",
+  "author": "Nate",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "NODE_ENV=test mocha --exit"
+  },
+  "_moduleAliases": {
+    "@endpoints": "endpoints",
+    "@root": ".",
+    "@scrape": "services/scrape",
+    "@services": "services"
+  },
+  "dependencies": {
+    "@cloudnative/health-connect": "^2.1.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-prom-bundle": "^6.0.0",
+    "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
+    "path": "^0.12.7",
+    "prom-client": "^12.0.0",
+    "puppeteer": "^10.0.0",
+    "uuid": "^8.0.0",
+    "winston": "^3.2.1"
+  }
+}
