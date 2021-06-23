@@ -33,7 +33,7 @@ module.exports = async function getPage(){
             browser =await puppeteer.launch({
                 headless: true,
                 ignoreHTTPSErrors:true,
-                executablePath: '/usr/bin/chromium',
+                executablePath: '/usr/bin/chromium-browser',
                 args: args
             }).catch(err=>{
                 logger.error('Unable to launch browser - ' + JSON.stringify(err), {user: 'admin', path:'getPage'});
