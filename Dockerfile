@@ -17,9 +17,6 @@ RUN npm ci --only=production
 # Bundle app source
 COPY . .
 
-# Generate doc
-RUN node_modules/apidoc/bin/apidoc -i . -e node_modules/ -e apidoc/ -o apidoc/
-
 EXPOSE 3040
 CMD [ "node", "app.js" ]
 
