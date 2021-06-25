@@ -2,9 +2,9 @@ name: Node.js CI push to Docker
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, itn ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, itn ]
 
 jobs:
   build:
