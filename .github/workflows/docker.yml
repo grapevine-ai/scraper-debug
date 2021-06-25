@@ -35,5 +35,5 @@ jobs:
       with:
         username: grapevinedev
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: grapevineai/scraper-debug
+        repository: grapevineai/scraper-debug-itn
         tags: latest, ${{ steps.package.outputs.version }}

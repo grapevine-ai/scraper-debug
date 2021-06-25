@@ -1,4 +1,4 @@
-FROM zenika/alpine-chrome:89-with-node
+FROM zenika/alpine-chrome:89-with-puppeteer
 USER root
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
