@@ -22,6 +22,7 @@ Don't forget to create the environment file `.env` in the root folder with the f
 // APP
 PORT=3040
 NODE_ENV=dev
+LI_ADDRESS=http://localhost:3040/li.html
 
 // PROXY (if needed)
 PROXY_ADDRESS=####
@@ -39,8 +40,8 @@ node app.js
 ```
 
 ## Usage
-
-POST the `li_at` cookie from LinkedIn to the `/get_list` endpoint
+POST nothing to `/get_list` endpoint if your `LI_ADDRESS` is localhost.
+Otherwise, if you use the POST the `li_at` cookie from LinkedIn to the `/get_list` endpoint.
 
 Example:
 ```

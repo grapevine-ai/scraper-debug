@@ -16,11 +16,14 @@ const getContactList = async(page, cookie, user)=>{
                 else request.continue();
             });
 
-            logger.info('Set up cookie', {user: 'none', path:'getContactList'});
-            await page.setCookie({name: 'li_at', value: cookie, domain: '.www.linkedin.com'});
+            if(cookie){
+                logger.info('Set up cookie', {user: 'none', path:'getContactList'});
+                await page.setCookie({name: 'li_at', value: cookie, domain: '.www.linkedin.com'});
+            }
 
-            logger.info('Authenticate proxy', {user: 'none', path:'getContactList'});
+
             if(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(process.env.PROXY_IP)){
+                logger.info('Authenticate proxy', {user: 'none', path:'getContactList'});
                 await page.authenticate({
                     username: 'lum-customer-' + process.env.PROXY_CUSTOMER + '-zone-' + process.env.PROXY_ZONE + '-ip-' + process.env.PROXY_IP,
                     password: process.env.PROXY_PASS
@@ -28,7 +31,7 @@ const getContactList = async(page, cookie, user)=>{
             }
 
             logger.info('Open page', {user: 'none', path:'getContactList'});
-            await page.goto('https://www.linkedin.com/mynetwork/invite-connect/connections/',{timeout:60000});
+            await page.goto(process.env.LI_ADDRESS,{timeout:60000});
 
             logger.info('Wait for selector', {user: 'none', path:'getContactList'});
             await page.waitForSelector('.mn-connection-card', {

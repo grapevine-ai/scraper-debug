@@ -4,13 +4,7 @@ const scrapeList = require('@scrape/scrapeList');
 module.exports = (app) => {
     app.post('/get_list', async(req, res) => {
         if (!req.body.cookie) {
-            logger.warn('No li cookie provided', {user: 'none', path: '/get_list'});
-            return res.status(422).send({
-                error: 'invalid li cookie',
-                name: 'invalid_li_cookie',
-                status: 422,
-                message: 'Invalid or no li cookie provided.'
-            });
+            logger.info('Scrape without cookie', {user: 'none', path: '/get_list'});
         }
         const result = await scrapeList(req.body.cookie, 'none').catch(async reject => {
             if (reject.name === 'too_many_bans') {

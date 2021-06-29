@@ -38,6 +38,7 @@ app.use('/health', health.LivenessEndpoint(healthcheck));
 // Starts metrics from here
 app.use(metricsMiddleware);
 
+app.use(express.static('html'))
 
 // ENDPOINT
 require('@endpoints/get_list')(app);
