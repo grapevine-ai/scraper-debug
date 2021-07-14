@@ -2,15 +2,16 @@ version: "2"
 services:
   node:
     environment:
-      - NODE_ENV=prod
-    build: .
+      - NODE_ENV=test
+    build: dev-env
     ports:
       - "9229:9229"
       - "3040:3040"
     volumes:
       - ./:/usr/src/scraper
+    command: nodemon --inspect=0.0.0.0 app.js
   chrome:
-    image: browserless/chrome:1-chrome-stable
+    image: browserless/chrome:m1
     environment:
       - MAX_CONCURRENT_SESSIONS=10
     ports:

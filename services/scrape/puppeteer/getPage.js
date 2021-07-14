@@ -30,7 +30,7 @@ module.exports = async function getPage(){
             }else{
                 logger.info('No proxy', {user: 'admin', path:'getPage'});
             }
-            browser = await puppeteer.connect({browserWSEndpoint: 'ws://chrome:3000'} );
+            browser = await puppeteer.connect({browserWSEndpoint: process.env.CHROME_WS_ENDPOINT} );
             // browser =await puppeteer.launch({
             //     //dumpio: true,
             //     headless: true,
