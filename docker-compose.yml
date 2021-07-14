@@ -1,0 +1,17 @@
+version: "2"
+services:
+  node:
+    environment:
+      - NODE_ENV=prod
+    build: .
+    ports:
+      - "9229:9229"
+      - "3040:3040"
+    volumes:
+      - ./:/usr/src/scraper
+  chrome:
+    image: browserless/chrome:1-chrome-stable
+    environment:
+      - MAX_CONCURRENT_SESSIONS=10
+    ports:
+      - "3000:3000"
